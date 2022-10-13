@@ -1,0 +1,84 @@
+What is Cucumber?
+Cucumber is a tool that supports behavior-driven development (BDD).
+ It runs automated acceptance tests written in BDD format.
+ Cucumber was originally written in the Ruby programming language and 
+ provides a way to write tests that anybody can understand,
+  regardless of their technical knowledge. 
+  
+  It explains test steps and application behaviour in simple English using the Gherkin language. 
+
+
+
+//////
+
+Why use Cucumber for testing?
+Cucumber is important as a testing tool for the following reasons:
+
+Cucumber is open source and free to use.
+By using Cucumber, QAs can write your test scripts in multiple languages such as Java, Ruby, .NET, Python, etc.
+It integrates with Selenium, Ruby on Rails, Cypress, Watir, and other web-based testing tools.
+Cucumber is one of the most widely used BDD tools. 
+
+
+
+//////
+
+
+Overview of Behavior Driven Development.............
+
+Behaviour-driven Development (BDD) is a software development technique that has evolved from TDD (Test Driven Development) – a programming practice where the developers write new code only when the automated test case fails.
+
+This approach involves the usage of shared language that enhances communication between various tech and non-tech teams.
+
+Tests are more user-focused and based on the system’s behavior.
+In BDD, “Given-When-Then” is the proposed approach for writing test cases.
+
+Focuses on defining ‘behavior’ rather than defining ‘tests’.
+
+Enhances communication among the members of cross-functional product teams.
+
+Helps reach a wider audience via the usage of non-technical language.
+
+
+
+
+
+
+How to Integrate Cypress and Cucumber
+Let’s first start by installing a Cypress and Cucumber preprocessor.
+
+Step 1: Install Cypress 
+
+Run the following command to install Cypress locally:
+
+ npm install cypress
+
+Step 2: Install Cucumber for Cypress
+
+Run the following command to install the Cucumber for Cypress package: 
+
+npm install –save-dev cypress-cucumber-preprocessor  
+
+Step 3: Add the configuration Cypress environment files
+
+Under plugins/Index.JS file add the following:
+
+const cucumber = require('cypress-cucumber-preprocessor').default 
+
+module.exports = (on, config) => {
+
+  on('file:preprocessor', cucumber())
+
+}
+
+Within the package.json file, add the following configuration:
+
+"cypress-cucumber-preprocessor": {"nonGlobalStepDefinitions": true
+
+In the spec files extension parameter in the cypress.json file, make sure to point to the feature files:
+
+{
+
+  "testFiles": "**/*.feature"
+
+}
